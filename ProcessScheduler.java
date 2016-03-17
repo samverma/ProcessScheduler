@@ -11,18 +11,18 @@ public abstract class ProcessScheduler
     //Keep track of various stats
     public class Stats 
     {
+        private int quanta;
+        private int processCount;
+        private int responseTime;
         private int turnaroundTime;
         private int waitingTime;
-        private int responseTime;
-        private int processCount;
-        private int quanta;
-        
+       
+        private int roundQuanta;
+        private int roundProcessCount;
+        private int roundResponseTime;
         private int roundTurnaroundTime;
         private int roundWaitingTime;
-        private int roundResponseTime;
-        private int roundProcessCount;
-        private int roundQuanta;
-        
+
         public double getAvgTurnaroundTime()
         {
             return turnaroundTime / (double) processCount;
@@ -105,21 +105,20 @@ public abstract class ProcessScheduler
     
     public Stats getStats() { return this.stats; }
     
-   
     //Print out the average stats for the given algorithm
     public void printAvgStats()
     {
-        System.out.format("    Turnaround time: %f\n", stats.getAvgTurnaroundTime());
-        System.out.format("    Waiting time: %f\n", stats.getAvgWaitingTime());
-        System.out.format("    Response time: %f\n", stats.getAvgResponseTime());
-        System.out.format("    Throughput per 100 quanta: %f\n", stats.getAvgThroughput());
+        System.out.format("   Turnaround time: %f\n", stats.getAvgTurnaroundTime());
+        System.out.format("   Waiting time: %f\n", stats.getAvgWaitingTime());
+        System.out.format("   Response time: %f\n", stats.getAvgResponseTime());
+        System.out.format("   Throughput per 100 quanta: %f\n", stats.getAvgThroughput());
     }
     
     
     //Print out the average stats for the round
     public void printRoundAvgStats()
     {
-        System.out.format("    Turnaround: %-2.3f Waiting: %-2.3f Response: %-2.3f Throughput: %-2.3f\n", 
+        System.out.format("   Turnaround: %-2.3f Waiting: %-2.3f Response: %-2.3f Throughput: %-2.3f\n", 
                 stats.getRoundAvgTurnaroundTime(), stats.getRoundAvgWaitingTime(), 
                 stats.getRoundAvgResponseTime(),  stats.getRoundAvgThroughput());
     }
