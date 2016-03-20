@@ -25,9 +25,8 @@ public class Main
         // Test each algorithm RUNS number of times
         for (int i = 0; i < RUNS; ++i)
         {
-            System.out.println("---------------------------");
+            
             System.out.format("Scheduling Process Queue %d:\n", i + 1);
-            System.out.println("---------------------------");
             
             //generate a new process queue for this testing round then duplicate it
             q[0] = Seeder.generateProcesses(MAX_PROCS_PER_RUN);
@@ -54,9 +53,9 @@ public class Main
             
         
         }
-        System.out.println("\n-------------------------------------------");
-        System.out.println("Average Statistics by Scheduling Algorithm");
-        System.out.println("-------------------------------------------");
+        System.out.println();
+        System.out.println("Average Statistics by Scheduling Algorithm:");
+        System.out.println();
 
         System.out.println("\nFirst Come First Served");
         fcfs.printAvgStats();
